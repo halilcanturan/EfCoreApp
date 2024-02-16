@@ -1,0 +1,46 @@
+﻿@model Ogretmen
+
+<h2>Öğretmen Bilgileri Güncelleme</h2>
+<hr />
+<div class="row">
+    <div class="col-8">
+        <form asp-asp-controller="Ogretmen" asp-action="Edit" method="post">
+            <input type="hidden" asp-for="OgretmenId" /> @* Edit ekranına öğretmen bilgilerini çekmek için kullanıyoruz. *@
+            <div class="mb-3">
+                <label asp-for="Ad" class="form-label">Öğretmen Adı</label>
+                <input asp-for="Ad" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Soyad" class="form-label">Öğretmen Soyadı</label>
+                <input asp-for="Soyad" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Eposta" class="form-label">Eposta</label>
+                <input asp-for="Eposta" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Telefon" class="form-label">Telefon</label>
+                <input asp-for="Telefon" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="BaslamaTarihi" class="form-label">Başlama Tarihi</label>
+                <input asp-for="BaslamaTarihi" type="date" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-secondary">Güncelle</button>
+        </form>
+    </div>
+    <div class="col-4">
+        <h4>Kurslar</h4>
+        <hr />
+        <ul>
+            @foreach (var item in Model.Kurslar)
+            {
+                <li>@item.KursKayitlari</li>
+            }
+        </ul>
+    </div>
+</div>
